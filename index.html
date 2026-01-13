@@ -3,141 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Himanshu Store | Premium Digital Services</title>
+    <title>Himanshu Store | Premium Digital Subscriptions</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #e5e5e5; overflow-x: hidden; }
-        #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; top: 0; left: 0; }
-        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.4s ease; }
-        .glass:hover { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(191, 149, 63, 0.3); transform: translateY(-10px); }
-        .gold-text { background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .gold-btn { background: linear-gradient(135deg, #bf953f, #b38728); box-shadow: 0 10px 20px rgba(179, 135, 40, 0.2); }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #000000; 
+            color: #ffffff;
+            background-image: radial-gradient(circle at 50% -20%, #1a1a1a 0%, #000 60%);
+        }
+        .premium-glass { 
+            background: rgba(255, 255, 255, 0.02); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            backdrop-filter: blur(20px);
+        }
+        .gold-accent { color: #d4af37; }
+        .gold-border { border-color: #d4af37; }
+        .gold-bg { background: linear-gradient(135deg, #d4af37 0%, #996515 100%); }
         .hidden-view { display: none; }
-        
-        /* BGM Button Pulse */
-        .music-pulse { animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(191, 149, 63, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(191, 149, 63, 0); } 100% { box-shadow: 0 0 0 0 rgba(191, 149, 63, 0); } }
+        input[type="number"]::-webkit-inner-spin-button, 
+        input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
     </style>
 </head>
-<body class="antialiased pb-20">
+<body class="antialiased selection:bg-yellow-500/30">
 
-    <div id="particles-js"></div>
-
-    <audio id="bgm" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    </audio>
-
-    <button onclick="toggleMusic()" class="fixed top-6 right-6 z-[100] glass p-3 rounded-full music-pulse">
-        <span id="music-icon">🎵</span>
-    </button>
-
-    <div id="store-view">
-        <header class="pt-20 pb-12 px-6 text-center" data-aos="fade-down">
-            <h1 class="text-5xl font-bold mb-4 tracking-tight">🚀 Welcome to <span class="gold-text">Himanshu Store</span></h1>
-            <p class="text-xl text-gray-400 italic mb-8 font-light">'Premium Access, Budget Prices!'</p>
-            
-            <div class="glass p-8 rounded-3xl max-w-3xl mx-auto shadow-2xl" data-aos="zoom-in">
-                <p class="text-gray-400 leading-relaxed">Tired of paying hefty monthly fees? At <span class="text-white font-semibold underline decoration-yellow-600">Himanshu Store</span>, we bridge the gap between premium content and affordability.</p>
-            </div>
-        </header>
-
-        <section class="px-6 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div class="glass p-8 rounded-[2.5rem] flex flex-col items-center" data-aos="fade-up" data-aos-delay="100">
-                <div class="w-20 h-20 bg-red-600/10 rounded-3xl flex items-center justify-center mb-6 border border-red-600/20">
-                    <span class="text-3xl font-bold text-red-500">YT</span>
+    <div class="max-w-6xl mx-auto px-6 py-12">
+        
+        <div id="store-view">
+            <header class="text-center mb-20">
+                <div class="inline-block px-4 py-1.5 mb-6 premium-glass rounded-full border border-white/10 text-[10px] tracking-[0.3em] uppercase text-gray-400">
+                    Trusted by 1000+ Users
                 </div>
-                <h3 class="text-xl font-bold">YouTube Premium</h3>
-                <p class="text-xs text-gray-500 mb-6 tracking-widest uppercase mt-1">1 Month Validity</p>
-                <div class="text-4xl font-black text-white mb-8">₹10</div>
-                <button onclick="showPayment('YouTube Premium', 10, 'yt')" class="w-full gold-btn text-black font-black py-5 rounded-2xl shadow-2xl uppercase tracking-widest text-sm hover:scale-105 transition">Buy Now</button>
-            </div>
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tighter mb-6">
+                    Himanshu <span class="gold-accent">Store</span>
+                </h1>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg font-light leading-relaxed">
+                    'Premium Access, Budget Prices!' <br>
+                    Authentic subscriptions for Netflix, Spotify, Canva & more at unbeatable market rates.
+                </p>
+            </header>
 
-            <div class="glass p-8 rounded-[2.5rem] flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
-                <div class="w-20 h-20 bg-green-600/10 rounded-3xl flex items-center justify-center mb-6 border border-green-600/20">
-                    <span class="text-3xl font-bold text-green-500">SP</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
+                <div class="premium-glass p-8 rounded-3xl">
+                    <h3 class="text-sm font-bold uppercase tracking-widest gold-accent mb-4">Our Mission</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Tired of paying hefty monthly fees for your favorite apps? We bridge the gap between premium content and affordability, providing everyone access to services they can actually afford.
+                    </p>
                 </div>
-                <h3 class="text-xl font-bold">Spotify Premium</h3>
-                <p class="text-xs text-gray-500 mb-6 tracking-widest uppercase mt-1">3 Month Validity</p>
-                <div class="text-4xl font-black text-white mb-8">₹20</div>
-                <button onclick="showPayment('Spotify Premium', 20, 'sp')" class="w-full gold-btn text-black font-black py-5 rounded-2xl shadow-2xl uppercase tracking-widest text-sm hover:scale-105 transition">Buy Now</button>
+                <div class="premium-glass p-8 rounded-3xl">
+                    <h3 class="text-sm font-bold uppercase tracking-widest text-blue-400 mb-4">Why Us?</h3>
+                    <div class="grid grid-cols-2 gap-4 text-[11px] text-gray-400 uppercase tracking-wider font-semibold">
+                        <span>⚡ Instant Delivery</span>
+                        <span>💎 100% Safety</span>
+                        <span>🔥 Unbeatable Price</span>
+                        <span>📞 24/7 Support</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="glass p-8 rounded-[2.5rem] flex flex-col items-center" data-aos="fade-up" data-aos-delay="300">
-                <div class="w-20 h-20 bg-blue-600/10 rounded-3xl flex items-center justify-center mb-6 border border-blue-600/20">
-                    <span class="text-3xl font-bold text-blue-400">BB</span>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="premium-glass p-10 rounded-[2.5rem] text-center transition-all hover:border-white/20">
+                    <div class="text-red-500 text-xs font-bold uppercase tracking-widest mb-2">Streaming</div>
+                    <h2 class="text-2xl font-bold mb-6">YouTube Premium</h2>
+                    <div class="text-4xl font-bold mb-2">₹10</div>
+                    <p class="text-gray-500 text-xs mb-10 tracking-widest uppercase">1 Month Validity</p>
+                    <button onclick="openPayment('YouTube Premium', 10)" class="w-full gold-bg text-black font-bold py-4 rounded-2xl text-xs uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all">
+                        Purchase Now
+                    </button>
                 </div>
-                <h3 class="text-xl font-bold">Big Basket</h3>
-                <p class="text-xs text-gray-500 mb-6 tracking-widest uppercase mt-1">1 Day Validity</p>
-                <div class="text-4xl font-black text-white mb-8">₹20</div>
-                <button onclick="showPayment('Big Basket', 20, 'bb')" class="w-full gold-btn text-black font-black py-5 rounded-2xl shadow-2xl uppercase tracking-widest text-sm hover:scale-105 transition">Buy Now</button>
-            </div>
-        </section>
-    </div>
 
-    <div id="payment-view" class="hidden-view px-6 pt-20 max-w-xl mx-auto">
-        <div class="glass p-10 rounded-[2.5rem]">
-            <h2 class="text-3xl font-bold mb-6 gold-text">Confirm Order</h2>
-            <p id="order-summary" class="mb-10 text-gray-300 border-b border-white/10 pb-4"></p>
-            <form id="payment-form" onsubmit="handleFinalConfirm(event)" class="space-y-6 text-left">
-                <input type="email" id="email" required placeholder="Delivery Email" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 outline-none focus:border-yellow-600">
-                <input type="number" id="phone" required placeholder="WhatsApp Number" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 outline-none focus:border-yellow-600">
-                <div class="p-4 bg-yellow-600/10 rounded-xl border border-dashed border-yellow-600/50 text-center">
-                    <p class="text-[10px] uppercase text-gray-400 mb-1">Pay to UPI:</p>
-                    <p class="font-bold text-white text-lg tracking-widest">rice@ptyes</p>
+                <div class="premium-glass p-10 rounded-[2.5rem] text-center transition-all hover:border-white/20">
+                    <div class="text-green-500 text-xs font-bold uppercase tracking-widest mb-2">Music</div>
+                    <h2 class="text-2xl font-bold mb-6">Spotify Premium</h2>
+                    <div class="text-4xl font-bold mb-2">₹20</div>
+                    <p class="text-gray-500 text-xs mb-10 tracking-widest uppercase">3 Month Validity</p>
+                    <button onclick="openPayment('Spotify Premium', 20)" class="w-full gold-bg text-black font-bold py-4 rounded-2xl text-xs uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all">
+                        Purchase Now
+                    </button>
                 </div>
-                <button type="submit" class="w-full gold-btn text-black font-bold py-5 rounded-xl uppercase tracking-widest">Verify & Pay</button>
-            </form>
-            <button onclick="location.reload()" class="mt-6 text-gray-500 text-xs w-full">← Cancel Order</button>
+
+                <div class="premium-glass p-10 rounded-[2.5rem] text-center transition-all hover:border-white/20">
+                    <div class="text-blue-500 text-xs font-bold uppercase tracking-widest mb-2">Lifestyle</div>
+                    <h2 class="text-2xl font-bold mb-6">Big Basket</h2>
+                    <div class="text-4xl font-bold mb-2">₹20</div>
+                    <p class="text-gray-500 text-xs mb-10 tracking-widest uppercase">1 Day Validity</p>
+                    <button onclick="openPayment('Big Basket', 20)" class="w-full gold-bg text-black font-bold py-4 rounded-2xl text-xs uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all">
+                        Purchase Now
+                    </button>
+                </div>
+            </div>
         </div>
+
+        <div id="payment-view" class="hidden-view max-w-lg mx-auto">
+            <button onclick="closePayment()" class="mb-12 text-gray-500 hover:text-white transition-colors text-sm font-medium flex items-center gap-2">
+                ← Back to Store
+            </button>
+
+            <div class="premium-glass p-12 rounded-[3rem]">
+                <h2 class="text-3xl font-bold mb-2">Checkout</h2>
+                <p id="item-info" class="text-gray-400 text-sm mb-10 border-b border-white/5 pb-4"></p>
+
+                <form action="https://formspree.io/f/mykkylnr" method="POST" class="space-y-6">
+                    <input type="hidden" name="Product" id="product-input">
+                    
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-widest text-gray-500 mb-2 font-bold">Email Address</label>
+                        <input type="email" name="Email" required placeholder="name@example.com" class="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-yellow-600 transition-all">
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-widest text-gray-500 mb-2 font-bold">WhatsApp Number</label>
+                        <input type="number" name="WhatsApp" required placeholder="+91 00000 00000" class="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-yellow-600 transition-all">
+                    </div>
+
+                    <div class="py-8 text-center border-t border-white/5 mt-8">
+                        <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-3">Payment via UPI</p>
+                        <p class="text-2xl font-bold tracking-widest mb-2">rice@ptyes</p>
+                        <span class="text-[9px] text-yellow-600/60 uppercase font-bold italic">Pay exact amount above</span>
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-widest text-gray-500 mb-2 font-bold">12-Digit UTR Number</label>
+                        <input type="text" name="UTR_Number" required placeholder="Enter Transaction ID" class="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-green-600 transition-all">
+                    </div>
+
+                    <button type="submit" class="w-full gold-bg text-black font-bold py-5 rounded-2xl text-xs uppercase tracking-[0.2em] mt-4">
+                        Confirm & Verify Order
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <footer class="mt-32 text-center text-gray-700 text-[10px] tracking-[0.4em] uppercase">
+            Designed by <a href="https://instagram.com/vct531" target="_blank" class="hover:text-white transition-colors">Himanshu</a> &copy; 2026
+        </footer>
     </div>
 
-    <a href="https://wa.me/2250142987393" target="_blank" class="fixed bottom-8 right-8 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl z-50">
-        <svg class="w-9 h-9 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.406c0 6.556-5.333 11.888-11.889 11.888-2.013 0-3.991-.512-5.747-1.483l-6.236 1.637zm6.75-4.433c1.554.921 3.326 1.408 5.137 1.408 5.422 0 9.835-4.412 9.835-9.835 0-2.625-1.022-5.093-2.879-6.95-1.856-1.857-4.325-2.879-6.95-2.879-5.423 0-9.835 4.412-9.835 9.835 0 1.933.568 3.821 1.644 5.432l-1.074 3.922 4.022-1.056z"/></svg>
+    <a href="https://wa.me/2250142987393" target="_blank" class="fixed bottom-8 right-8 p-4 bg-green-500 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-transform z-50">
+        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.406c0 6.556-5.333 11.888-11.889 11.888-2.013 0-3.991-.512-5.747-1.483l-6.236 1.637zm6.75-4.433c1.554.921 3.326 1.408 5.137 1.408 5.422 0 9.835-4.412 9.835-9.835 0-2.625-1.022-5.093-2.879-6.95-1.856-1.857-4.325-2.879-6.95-2.879-5.423 0-9.835 4.412-9.835 9.835 0 1.933.568 3.821 1.644 5.432l-1.074 3.922 4.022-1.056z"/></svg>
     </a>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true });
-
-        // Particles Background
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 60, "density": { "enable": true, "area": 800 } },
-                "color": { "value": "#bf953f" },
-                "opacity": { "value": 0.2 },
-                "size": { "value": 2 },
-                "line_linked": { "enable": true, "distance": 150, "color": "#bf953f", "opacity": 0.1, "width": 1 },
-                "move": { "enable": true, "speed": 1 }
-            }
-        });
-
-        // BGM Logic
-        const audio = document.getElementById('bgm');
-        function toggleMusic() {
-            if (audio.paused) {
-                audio.play();
-                document.getElementById('music-icon').innerText = "⏸️";
-            } else {
-                audio.pause();
-                document.getElementById('music-icon').innerText = "🎵";
-            }
-        }
-
-        // SPA View Switching
-        function showPayment(name, price) {
+        function openPayment(name, price) {
             document.getElementById('store-view').classList.add('hidden-view');
             document.getElementById('payment-view').classList.remove('hidden-view');
-            document.getElementById('order-summary').innerText = `Item: ${name} | Total: ₹${price}`;
+            document.getElementById('product-input').value = name;
+            document.getElementById('item-info').innerText = `Buying: ${name} @ ₹${price}`;
             window.scrollTo(0,0);
         }
 
-        function handleFinalConfirm(e) {
-            e.preventDefault();
-            alert("✅ Request verified successfully!");
-            location.reload();
+        function closePayment() {
+            document.getElementById('payment-view').classList.add('hidden-view');
+            document.getElementById('store-view').classList.remove('hidden-view');
+            window.scrollTo(0,0);
         }
     </script>
 </body>
