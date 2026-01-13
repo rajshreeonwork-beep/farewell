@@ -3,191 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Himanshu Store | Phonk Edition</title>
+    <title>Himanshu Store | Elite Edition</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: #000; 
-            color: #fff;
-            background-image: radial-gradient(circle at 50% -20%, #1a1a1a 0%, #000 70%);
-        }
-        .premium-glass { 
-            background: rgba(255, 255, 255, 0.03); 
-            border: 1px solid rgba(255, 255, 255, 0.08); 
-            backdrop-filter: blur(20px);
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        /* Touch Effect */
-        .premium-glass:active { transform: scale(0.97); border-color: #d4af37; }
-        
-        .gold-accent { color: #d4af37; }
-        .gold-bg { background: linear-gradient(135deg, #d4af37 0%, #996515 100%); }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #000; color: #fff; overflow-x: hidden; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 2rem; transition: all 0.3s ease; }
+        .glass:hover { border-color: #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.1); }
+        .gold-text { background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .gold-bg { background: linear-gradient(135deg, #bf953f, #b38728); }
         .hidden-view { display: none; }
-        
-        /* Music Pulse */
-        .music-btn { animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); } }
+        .cart-controls { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; animation: slideIn 0.3s ease; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased selection:bg-yellow-500/20">
 
-    <audio id="phonkMusic" loop>
-        <source src="https://www.mboxdrive.com/Montagem%20Rugada.mp3" type="audio/mpeg">
-    </audio>
+    <iframe id="phonkPlayer" width="0" height="0" src="https://www.youtube.com/embed/Hd5nXTyaXZg?autoplay=0&enablejsapi=1" frameborder="0" style="display:none;"></iframe>
 
-    <div class="fixed top-6 right-6 z-50">
-        <button onclick="toggleMusic()" class="music-btn premium-glass p-4 rounded-full flex items-center gap-3">
-            <span id="music-status" class="text-xs font-bold uppercase tracking-widest gold-accent">Play Phonk</span>
-            <span id="music-icon">▶️</span>
-        </button>
-    </div>
+    <nav class="fixed top-0 w-full p-6 flex justify-between items-center z-50 bg-black/50 backdrop-blur-md">
+        <div class="text-xl font-extrabold gold-text uppercase tracking-widest">Himanshu Store</div>
+        <button onclick="controlMusic()" id="musicBtn" class="bg-white/10 px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest border border-white/10">Play Phonk ▶️</button>
+    </nav>
 
-    <div class="max-w-6xl mx-auto px-6 py-12">
+    <main class="max-w-6xl mx-auto px-6 pt-32 pb-20">
         
         <div id="store-view">
-            <header class="text-center mb-16">
-                <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-4 italic uppercase">
-                    Himanshu <span class="gold-accent">Store</span>
-                </h1>
-                <p class="text-gray-500 tracking-[0.3em] uppercase text-[10px] font-bold">Premium Digital Services • Cheapest in Market</p>
+            <header class="text-center mb-16" data-aos="zoom-in">
+                <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter mb-4">PREMIUM <br> <span class="gold-text">ACCESS</span></h1>
+                <p class="text-gray-500 text-xs tracking-[0.5em] uppercase font-bold">Himanshu Store • Cheapest Price Ever</p>
             </header>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
-                <div class="premium-glass p-8 rounded-[2rem] flex flex-col items-center">
-                    <h3 class="text-xl font-bold mb-1">YouTube Premium</h3>
-                    <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-6 italic">1 Month Access</p>
-                    <div class="text-4xl font-black mb-8">₹10</div>
-                    
-                    <div class="flex items-center gap-6 mb-8">
-                        <button onclick="changeQty('yt', -1)" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center">-</button>
-                        <span id="qty-yt" class="text-xl font-bold w-4 text-center">1</span>
-                        <button onclick="changeQty('yt', 1)" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center">+</button>
+                <div class="glass p-8 flex flex-col items-center" data-aos="fade-up">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" class="h-12 mb-6" alt="YT">
+                    <h3 class="text-xl font-bold">YouTube Premium</h3>
+                    <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-4">1 Month | ₹10</p>
+                    <div id="btn-yt-container">
+                        <button onclick="initCart('yt')" class="gold-bg text-black font-bold px-8 py-3 rounded-xl text-xs uppercase tracking-widest">Buy Now</button>
                     </div>
-
-                    <button onclick="openPayment('YouTube Premium', 10, 'yt')" class="w-full gold-bg text-black font-black py-4 rounded-xl text-xs uppercase tracking-widest">Buy Now</button>
+                    <div id="cart-yt" class="cart-controls hidden">
+                        <button onclick="updateQty('yt', -1)" class="w-10 h-10 glass flex items-center justify-center font-bold">-</button>
+                        <span id="qty-yt" class="text-lg font-bold">1</span>
+                        <button onclick="updateQty('yt', 1)" class="w-10 h-10 glass flex items-center justify-center font-bold">+</button>
+                        <button onclick="goToPayment('YouTube Premium', 10, 'yt')" class="gold-bg text-black px-4 py-2 rounded-lg text-[10px] font-bold uppercase">Checkout</button>
+                    </div>
                 </div>
 
-                <div class="premium-glass p-8 rounded-[2rem] flex flex-col items-center">
-                    <h3 class="text-xl font-bold mb-1">Spotify Premium</h3>
-                    <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-6 italic">3 Months Access</p>
-                    <div class="text-4xl font-black mb-8">₹20</div>
-                    
-                    <div class="flex items-center gap-6 mb-8">
-                        <button onclick="changeQty('sp', -1)" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center">-</button>
-                        <span id="qty-sp" class="text-xl font-bold w-4 text-center">1</span>
-                        <button onclick="changeQty('sp', 1)" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center">+</button>
+                <div class="glass p-8 flex flex-col items-center" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" class="h-12 mb-6" alt="SP">
+                    <h3 class="text-xl font-bold">Spotify Premium</h3>
+                    <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-4">3 Month | ₹20</p>
+                    <div id="btn-sp-container">
+                        <button onclick="initCart('sp')" class="gold-bg text-black font-bold px-8 py-3 rounded-xl text-xs uppercase tracking-widest">Buy Now</button>
                     </div>
-
-                    <button onclick="openPayment('Spotify Premium', 20, 'sp')" class="w-full gold-bg text-black font-black py-4 rounded-xl text-xs uppercase tracking-widest">Buy Now</button>
+                    <div id="cart-sp" class="cart-controls hidden">
+                        <button onclick="updateQty('sp', -1)" class="w-10 h-10 glass flex items-center justify-center font-bold">-</button>
+                        <span id="qty-sp" class="text-lg font-bold">1</span>
+                        <button onclick="updateQty('sp', 1)" class="w-10 h-10 glass flex items-center justify-center font-bold">+</button>
+                        <button onclick="goToPayment('Spotify Premium', 20, 'sp')" class="gold-bg text-black px-4 py-2 rounded-lg text-[10px] font-bold uppercase">Checkout</button>
+                    </div>
                 </div>
 
-                <div class="premium-glass p-8 rounded-[2rem] flex flex-col items-center">
-                    <h3 class="text-xl font-bold mb-1">Big Basket</h3>
-                    <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-6 italic">1 Day Access</p>
-                    <div class="text-4xl font-black mb-8">₹20</div>
-                    
-                    <div class="flex items-center gap-6 mb-8">
-                        <button onclick="changeQty('bb', -1)" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center">-</button>
-                        <span id="qty-bb" class="text-xl font-bold w-4 text-center">1</span>
-                        <button onclick="changeQty('bb', 1)" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center">+</button>
+                <div class="glass p-8 flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://img.icons8.com/color/512/big-basket.png" class="h-12 mb-6" alt="BB">
+                    <h3 class="text-xl font-bold">Big Basket</h3>
+                    <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-4">1 Day | ₹20</p>
+                    <div id="btn-bb-container">
+                        <button onclick="initCart('bb')" class="gold-bg text-black font-bold px-8 py-3 rounded-xl text-xs uppercase tracking-widest">Buy Now</button>
                     </div>
-
-                    <button onclick="openPayment('Big Basket', 20, 'bb')" class="w-full gold-bg text-black font-black py-4 rounded-xl text-xs uppercase tracking-widest">Buy Now</button>
+                    <div id="cart-bb" class="cart-controls hidden">
+                        <button onclick="updateQty('bb', -1)" class="w-10 h-10 glass flex items-center justify-center font-bold">-</button>
+                        <span id="qty-bb" class="text-lg font-bold">1</span>
+                        <button onclick="updateQty('bb', 1)" class="w-10 h-10 glass flex items-center justify-center font-bold">+</button>
+                        <button onclick="goToPayment('Big Basket', 20, 'bb')" class="gold-bg text-black px-4 py-2 rounded-lg text-[10px] font-bold uppercase">Checkout</button>
+                    </div>
                 </div>
 
             </div>
         </div>
 
         <div id="payment-view" class="hidden-view max-w-lg mx-auto">
-            <button onclick="closePayment()" class="mb-8 text-gray-500 hover:text-white flex items-center gap-2 text-xs uppercase font-bold tracking-widest">
-                ← Return to Store
-            </button>
-
-            <div class="premium-glass p-10 rounded-[2.5rem] border-white/20 shadow-2xl">
-                <h2 class="text-3xl font-black italic gold-accent mb-2 uppercase">Checkout</h2>
-                <p id="bill-summary" class="text-xs text-gray-400 mb-10 pb-4 border-b border-white/10"></p>
-
+            <button onclick="location.reload()" class="mb-8 text-gray-500 uppercase text-[10px] font-bold tracking-widest flex items-center gap-2">← Back to Store</button>
+            <div class="glass p-10 border-white/20">
+                <h2 class="text-2xl font-bold gold-text mb-6">CHECKOUT DETAILS</h2>
                 <form action="https://formspree.io/f/mykkylnr" method="POST" class="space-y-6">
-                    <input type="hidden" name="OrderDetails" id="order-input">
+                    <input type="hidden" name="Order_Summary" id="summary-input">
+                    <p id="bill-text" class="text-yellow-500 font-bold text-sm mb-4"></p>
                     
-                    <div>
-                        <label class="block text-[9px] uppercase tracking-widest text-gray-500 mb-2 font-bold">Delivery Email</label>
-                        <input type="email" name="Email" required placeholder="Where to send access?" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 outline-none focus:border-yellow-600 transition-all">
+                    <input type="email" name="Email" required placeholder="Email for delivery" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-yellow-600">
+                    
+                    <div class="relative">
+                        <div class="flex">
+                            <span class="bg-white/10 border border-white/10 rounded-l-xl px-4 py-3 text-gray-400">+91</span>
+                            <input type="number" id="phoneInput" name="Phone" required placeholder="0000000000" class="w-full bg-white/5 border border-white/10 rounded-r-xl px-4 py-3 outline-none focus:border-yellow-600">
+                        </div>
+                        <p id="errorMsg" class="text-red-500 text-[10px] mt-2 font-bold hidden italic animate-pulse">Majak mat kar ladle!</p>
                     </div>
 
-                    <div>
-                        <label class="block text-[9px] uppercase tracking-widest text-gray-500 mb-2 font-bold">WhatsApp Number</label>
-                        <input type="number" name="WhatsApp" required placeholder="For direct support" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 outline-none focus:border-yellow-600 transition-all">
+                    <div class="py-6 bg-yellow-600/10 rounded-xl border border-dashed border-yellow-600/40 text-center">
+                        <p class="text-[9px] uppercase text-gray-400 mb-1">Pay to UPI</p>
+                        <p class="text-lg font-bold tracking-[0.2em]">rice@ptyes</p>
                     </div>
 
-                    <div class="py-6 text-center bg-white/5 rounded-2xl border border-dashed border-white/20">
-                        <p class="text-[9px] uppercase text-gray-500 mb-2">Pay via UPI</p>
-                        <p class="text-xl font-bold tracking-[0.2em] mb-1">rice@ptyes</p>
-                    </div>
-
-                    <div>
-                        <label class="block text-[9px] uppercase tracking-widest text-gray-500 mb-2 font-bold">UTR / Transaction ID</label>
-                        <input type="text" name="UTR_Number" required placeholder="Enter 12-digit number" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 outline-none focus:border-green-600">
-                    </div>
-
-                    <button type="submit" class="w-full gold-bg text-black font-black py-5 rounded-xl uppercase tracking-[0.2em] text-xs">
-                        Confirm Purchase
-                    </button>
+                    <input type="text" name="UTR" required placeholder="12-digit UTR Number" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-600">
+                    
+                    <button type="submit" id="submitBtn" class="w-full gold-bg text-black font-extrabold py-4 rounded-xl uppercase tracking-widest text-xs">Confirm Order</button>
                 </form>
             </div>
         </div>
+    </main>
 
-        <footer class="mt-20 text-center text-gray-700 text-[10px] tracking-[0.5em] uppercase">
-            Designed by Himanshu @vct531
-        </footer>
-    </div>
+    <footer class="text-center py-10 text-gray-700 text-[9px] tracking-[0.5em] uppercase border-t border-white/5">
+        Designed by Himanshu @vct531
+    </footer>
 
-    <a href="https://wa.me/2250142987393" target="_blank" class="fixed bottom-8 right-8 p-4 bg-green-500 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-transform z-50">
-        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.406c0 6.556-5.333 11.888-11.889 11.888-2.013 0-3.991-.512-5.747-1.483l-6.236 1.637zm6.75-4.433c1.554.921 3.326 1.408 5.137 1.408 5.422 0 9.835-4.412 9.835-9.835 0-2.625-1.022-5.093-2.879-6.95-1.856-1.857-4.325-2.879-6.95-2.879-5.423 0-9.835 4.412-9.835 9.835 0 1.933.568 3.821 1.644 5.432l-1.074 3.922 4.022-1.056z"/></svg>
-    </a>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        const audio = document.getElementById('phonkMusic');
+        AOS.init();
+        let isPlaying = false;
         
-        function toggleMusic() {
-            if (audio.paused) {
-                audio.play();
-                document.getElementById('music-status').innerText = "Vibing Now";
-                document.getElementById('music-icon').innerText = "⏸️";
+        function controlMusic() {
+            const player = document.getElementById('phonkPlayer');
+            const btn = document.getElementById('musicBtn');
+            if(!isPlaying) {
+                player.src = player.src.replace("autoplay=0", "autoplay=1");
+                btn.innerText = "Pause Phonk ⏸️";
+                isPlaying = true;
             } else {
-                audio.pause();
-                document.getElementById('music-status').innerText = "Play Phonk";
-                document.getElementById('music-icon').innerText = "▶️";
+                location.reload(); // Simple way to stop iframe audio
             }
         }
 
-        function changeQty(id, delta) {
+        function initCart(id) {
+            document.getElementById(`btn-${id}-container`).classList.add('hidden');
+            document.getElementById(`cart-${id}`).classList.remove('hidden');
+        }
+
+        function updateQty(id, delta) {
             const el = document.getElementById(`qty-${id}`);
             let val = parseInt(el.innerText);
             val = Math.max(1, val + delta);
             el.innerText = val;
         }
 
-        function openPayment(name, price, id) {
+        function goToPayment(name, price, id) {
             const qty = document.getElementById(`qty-${id}`).innerText;
             const total = parseInt(qty) * price;
-            
             document.getElementById('store-view').classList.add('hidden-view');
             document.getElementById('payment-view').classList.remove('hidden-view');
-            
-            document.getElementById('order-input').value = `${name} (Qty: ${qty}) - Total: ₹${total}`;
-            document.getElementById('bill-summary').innerText = `BILLING: ${name} x ${qty} | PAYABLE: ₹${total}`;
+            document.getElementById('summary-input').value = `${name} x ${qty} (Total: ₹${total})`;
+            document.getElementById('bill-text').innerText = `BILLING: ${name} x ${qty} | TOTAL: ₹${total}`;
             window.scrollTo(0,0);
         }
 
-        function closePayment() {
-            document.getElementById('payment-view').classList.add('hidden-view');
-            document.getElementById('store-view').classList.remove('hidden-view');
-            window.scrollTo(0,0);
-        }
+        const phoneInput = document.getElementById('phoneInput');
+        const errorMsg = document.getElementById('errorMsg');
+        const submitBtn = document.getElementById('submitBtn');
+
+        phoneInput.addEventListener('input', function() {
+            if (this.value.length > 10) {
+                errorMsg.classList.remove('hidden');
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = "0.3";
+            } else {
+                errorMsg.classList.add('hidden');
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = "1";
+            }
+        });
     </script>
 </body>
 </html>
