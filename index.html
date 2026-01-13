@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The One Last Party | Farewell 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        :root { --gold: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c); }
+        body { background: #000; color: white; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+        #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; }
+        .font-luxury { font-family: 'Cinzel', serif; }
+        .gold-text { background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .gold-bg { background: var(--gold); }
+        .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; }
+        .swiper { width: 100%; padding-top: 20px; padding-bottom: 20px; }
+        .footer-link:hover { text-shadow: 0 0 8px rgba(191, 149, 63, 0.8); transition: 0.3s; }
+    </style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <div class="relative z-10">
+        <nav class="p-8 text-center" data-aos="fade-down">
+            <div class="text-xl font-luxury font-bold tracking-[0.4em] gold-text">CLASS 12 BATCH</div>
+        </nav>
+
+        <main class="max-w-4xl mx-auto px-6 pb-20 text-center">
+            <div data-aos="zoom-in" data-aos-duration="1200">
+                <p class="tracking-[0.6em] text-[10px] mb-4 uppercase text-gray-500 font-bold">The Final Chapter</p>
+                <h1 class="text-5xl md:text-8xl font-luxury mb-6 leading-tight">ONE LAST <br> <span class="gold-text">PARTY</span></h1>
+                
+                <div class="glass-card p-6 mb-12 max-w-md mx-auto border-yellow-600/20">
+                    <p class="gold-text font-bold tracking-[0.2em] text-sm mb-1 uppercase">📍 Morvee Hotel</p>
+                    <p class="text-gray-400 text-xs mb-4 uppercase tracking-widest font-light">Timing: 2:00 PM - 7:00 PM</p>
+                    <a href="https://www.morveehotels.com/" target="_blank" class="inline-block px-8 py-2 border border-yellow-500/50 text-yellow-500 rounded-full text-[10px] font-bold hover:bg-yellow-500 hover:text-black transition-all uppercase">Explore Venue</a>
+                </div>
+            </div>
+
+            <div class="glass-card max-w-lg mx-auto p-8 md:p-12 mb-20 shadow-2xl" data-aos="fade-up">
+                <div class="mb-6">
+                    <span class="gold-bg text-black text-[10px] font-bold px-5 py-1 rounded-full uppercase tracking-tighter shadow-lg shadow-yellow-900/30">Entry: ₹650/- Per Person</span>
+                </div>
+                <h2 class="text-2xl font-luxury mb-8 gold-text tracking-widest uppercase">Register Now</h2>
+                
+                <form action="https://formspree.io/f/mykkylzy" method="POST" class="space-y-6 text-left">
+                    <div>
+                        <label class="text-[10px] uppercase tracking-widest text-gray-500 ml-1">Full Name</label>
+                        <input type="text" name="name" required placeholder="Your Name" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-yellow-600 outline-none transition-all focus:bg-white/10">
+                    </div>
+                    <div>
+                        <label class="text-[10px] uppercase tracking-widest text-gray-500 ml-1">Phone Number</label>
+                        <div class="flex gap-2">
+                            <span class="bg-white/10 border border-white/10 rounded-xl px-4 py-4 text-gray-400 font-bold">+91</span>
+                            <input type="number" id="phoneInput" name="phone" required placeholder="0000000000" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:border-yellow-600 outline-none transition-all">
+                        </div>
+                        <p id="errorMsg" class="text-red-500 text-[11px] mt-2 font-bold italic hidden animate-pulse">Majak mat kar ladle!</p>
+                    </div>
+                    <button type="submit" id="submitBtn" class="w-full gold-bg text-black font-extrabold py-5 rounded-xl uppercase tracking-[0.2em] text-xs hover:scale-[1.03] active:scale-95 transition-all shadow-xl shadow-yellow-900/10">Confirm Presence</button>
+                </form>
+            </div>
+
+            <div class="mt-20" data-aos="fade-up">
+                <h3 class="font-luxury gold-text text-xl mb-8 tracking-[0.2em]">FOR ANY QUESTIONS</h3>
+                <div class="swiper mySwiper max-w-sm mx-auto">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide glass-card p-10 border-yellow-900/20">
+                            <h4 class="text-xl font-bold mb-1">Yash</h4>
+                            <p class="text-gray-500 text-xs mb-8 tracking-widest uppercase italic">Management Team</p>
+                            <a href="https://instagram.com/yxsh_001" target="_blank" class="gold-bg text-black px-8 py-3 rounded-lg text-xs font-bold uppercase tracking-widest">Contact Now</a>
+                        </div>
+                        <div class="swiper-slide glass-card p-10 border-yellow-900/20">
+                            <h4 class="text-xl font-bold mb-1">Bikash</h4>
+                            <p class="text-gray-500 text-xs mb-8 tracking-widest uppercase italic">Core Committee</p>
+                            <a href="https://instagram.com/thebikashmahato" target="_blank" class="gold-bg text-black px-8 py-3 rounded-lg text-xs font-bold uppercase tracking-widest">Contact Now</a>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination mt-6"></div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="w-full py-12 px-10 flex flex-col md:flex-row justify-between items-center text-gray-600 text-[9px] tracking-[0.3em] uppercase gap-6 border-t border-white/5">
+            <div class="order-2 md:order-1 text-center md:text-left">
+                &copy; 2026 THE LAST PARTY. ALL RIGHTS RESERVED.
+            </div>
+            <div class="order-1 md:order-2 text-center md:text-right">
+                <span>Designed by</span> 
+                <a href="https://instagram.com/vct531" target="_blank" class="gold-text font-bold ml-1 footer-link">Himanshu</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        AOS.init({ duration: 1200, once: true });
+        
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            autoplay: { delay: 3500, disableOnInteraction: false },
+            pagination: { el: ".swiper-pagination", clickable: true },
+        });
+
+        particlesJS("particles-js", { "particles": { "number": { "value": 50, "density": { "enable": true, "area": 800 } }, "color": { "value": "#ffffff" }, "opacity": { "value": 0.2 }, "line_linked": { "enable": true, "color": "#bf953f", "opacity": 0.1 }, "move": { "speed": 1 } } });
+
+        const phoneInput = document.getElementById('phoneInput');
+        const errorMsg = document.getElementById('errorMsg');
+        const submitBtn = document.getElementById('submitBtn');
+
+        phoneInput.addEventListener('input', function() {
+            if (this.value.length > 10) {
+                errorMsg.classList.remove('hidden');
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = "0.3";
+                submitBtn.innerText = "Majak mat kar ladle!";
+            } else {
+                errorMsg.classList.add('hidden');
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = "1";
+                submitBtn.innerText = "Confirm Presence";
+            }
+        });
+    </script>
+</body>
+</html>
