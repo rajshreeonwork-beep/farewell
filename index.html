@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Last Party | Coming Soon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c); }
+        body { background: #000; color: white; font-family: 'Poppins', sans-serif; overflow: hidden; }
+        #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; }
+        .font-luxury { font-family: 'Cinzel', serif; }
+        .gold-text { background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .gold-bg { background: var(--gold); }
+        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 30px; }
+        
+        /* Tagda Glow Animation */
+        .closed-glow {
+            box-shadow: 0 0 50px rgba(191, 149, 63, 0.1);
+            border: 1px solid rgba(191, 149, 63, 0.3);
+            animation: pulse-glow 2s infinite alternate;
+        }
+        @keyframes pulse-glow {
+            from { box-shadow: 0 0 20px rgba(191, 149, 63, 0.1); }
+            to { box-shadow: 0 0 40px rgba(191, 149, 63, 0.3); }
+        }
+
+        .coming-soon-shimmer {
+            background: linear-gradient(90deg, #000, #bf953f, #000);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
+        }
+        @keyframes shine { to { background-position: 200% center; } }
+    </style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+        
+        <nav class="p-8 text-center" data-aos="fade-down">
+            <div class="text-xl font-luxury font-bold tracking-[0.4em] gold-text">CLASS 12 BATCH</div>
+        </nav>
+
+        <main class="flex-grow flex flex-col items-center justify-center px-6 text-center">
+            
+            <div data-aos="zoom-in" data-aos-duration="1500" class="mb-8">
+                <p class="tracking-[0.8em] text-[10px] mb-4 uppercase text-gray-500 font-bold">The Countdown Begins</p>
+                <h1 class="text-6xl md:text-9xl font-luxury mb-4 leading-tight">ONE LAST <br> <span class="gold-text">PARTY</span></h1>
+            </div>
+
+            <div class="glass-card closed-glow max-w-lg w-full p-10 md:p-16 mb-12 relative overflow-hidden" data-aos="fade-up">
+                <div class="absolute top-0 left-0 w-full h-1 gold-bg opacity-50"></div>
+                
+                <h2 class="text-3xl font-luxury mb-4 text-white tracking-widest uppercase">Registration Closed</h2>
+                <div class="h-[1px] w-20 bg-gray-700 mx-auto mb-6"></div>
+                
+                <p class="text-gray-400 text-sm tracking-widest mb-8 uppercase font-light leading-loose">
+                    The house is full. <br> entries for the grand farewell are now <span class="text-white font-bold underline decoration-yellow-600">Locked</span>.
+                </p>
+
+                <div class="space-y-3">
+                    <p class="gold-text font-bold tracking-[0.3em] text-xs uppercase">📍 Morvee Hotel</p>
+                    <p class="coming-soon-shimmer font-luxury text-xl tracking-[0.2em] font-bold">DATE: UPDATED SOON</p>
+                </div>
+            </div>
+
+            <p class="text-gray-600 text-[10px] tracking-[0.5em] uppercase animate-pulse">Stay Tuned For Further Updates</p>
+
+        </main>
+
+        <footer class="w-full py-10 px-8 flex flex-col md:flex-row justify-between items-center text-gray-700 text-[9px] tracking-[0.4em] uppercase gap-4">
+            <div class="text-center md:text-left">
+                &copy; 2026 THE LAST PARTY. ALL RIGHTS RESERVED.
+            </div>
+            <div class="text-center md:text-right">
+                <span>Designed by</span> 
+                <a href="https://instagram.com/vct531" target="_blank" class="gold-text font-bold ml-1 hover:brightness-125 transition-all">Himanshu</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 40, "density": { "enable": true, "area": 800 } },
+                "color": { "value": "#ffffff" },
+                "opacity": { "value": 0.15 },
+                "size": { "value": 1.5 },
+                "line_linked": { "enable": true, "distance": 150, "color": "#bf953f", "opacity": 0.05, "width": 1 },
+                "move": { "enable": true, "speed": 0.8, "direction": "none", "random": true }
+            }
+        });
+    </script>
+</body>
+</html>
